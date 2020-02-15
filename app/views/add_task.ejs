@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>
-        Add a Task
-    </title>
-</head>
-
-<body>
-
+<%- include('header'); -%>
+<div class="container">
+    <div class="container_add">
     <form action="/tasks" method="post">
         <div>
             <label>Task ID:</label>
-            <input type="text" name="taskId" />
+            <input type="text" name="taskId"  placeholder="001" />
         </div>
         <div>
             <label>Task Name:</label>
@@ -24,13 +16,13 @@
         </div>
         <div>
             <label>Start Date:</label>
-            <input type="text" name="startDate" />
+            <input type="text" name="startDate" placeholder="yyyy/mm/dd" />
         </div>
         <div>
 
             <label>End Date:</label>
-            <input type="text" name="endDate" />
-        </div>
+            <input type="text" name="endDate"  placeholder="yyyy/mm/dd" />
+        </div>  
         <div>
             <label>Owner:</label>
             <input type="text" name="owner" />
@@ -39,6 +31,6 @@
             <input type="submit" value="Create Task" />
         </div>
     </form>
-</body>
-
-</html>
+</div>
+</div>
+    <%- include('footer'); -%>

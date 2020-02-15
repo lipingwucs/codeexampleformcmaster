@@ -27,6 +27,8 @@ module.exports = function (app) {
     app.route('/list_tasks/:taskId').get(tasks.read).delete(tasks.deleteByTaskId)
     app.param('taskId', tasks.findTaskByTaskId);   
 
+    app.route('/about').get(index.about);
+
 };
 
 

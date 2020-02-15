@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-<head>
-    <title><%= title %></title>
-</head>
-
-<body>
+   <%- include('header'); -%>
+    <div class="container">
     <form method="post" action="/edit_task">
-
-        <table align="center">
+        <table align="center" class="table table-striped table-hover">
             <tr>
                 <td>
                     <div>
@@ -39,6 +31,16 @@
                 <td>
                     <div>
                         <label>Owner </label>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <label> </label>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <label>  </label>
                     </div>
                 </td>
             </tr>
@@ -80,17 +82,15 @@
                 </td>
                 <td>
                     <div>
-                        <input type="submit" formaction="/list_tasks/<%= task.taskId %>?_method=PUT" value="Update Task" style="width: 100px"/>
+                        <input type="submit" formaction="/list_tasks/<%= task.taskId %>?_method=PUT" value="Update" style="width: 80px; background: rgb(233, 134, 22); "/>
                     </div>
                 </td>
                 <td>
                     <div>
-                        <input type="submit" formaction="/list_tasks/<%= task.taskId %>?_method=Delete" value="Delete Task" style="width: 100px"/>
+                        <input type="submit" formaction="/list_tasks/<%= task.taskId %>?_method=Delete" value="Delete" style="width: 80px; background : rgb(255, 48, 11); "/>
                     </div>
                 </td>
             </tr>
-
-
 
             <% })%>
 
@@ -98,7 +98,5 @@
 
 
     </form>
-
-</body>
-
-</html>
+</div>
+<%- include('footer'); -%>

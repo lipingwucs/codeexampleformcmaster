@@ -12,3 +12,9 @@ exports.renderAdd = function (req, res) {
 
 };
 
+exports.about = function (req, res) {
+    // Use the 'response' object to render the 'about' view with a 'about' property
+    res.render('about', {title: 'About the project'} );
+    
+};
+
