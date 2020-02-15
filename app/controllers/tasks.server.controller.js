@@ -14,7 +14,8 @@ exports.createTask = function (req, res, next) {
             return next(err);
         } else {
             // Use the 'response' object to send a JSON response
-            res.json(task);            
+           // res.json(task);    
+            res.redirect('/list_tasks');        
         }
     });
 };
@@ -42,7 +43,8 @@ exports.readTasks = function (req, res, next) {
 // 'read' controller method to display a task
 exports.read = function(req, res) {
 	// Use the 'response' object to send a JSON response
-	res.json(req.task);
+    // res.json(req.task);
+    res.redirect('/list_tasks'); 
 };
 //
 //update a task by task id
@@ -98,7 +100,7 @@ exports.findTaskByTaskId = function (req, res, next, taskId) {
             req.task = task;
             console.log(task);
 			// Call the next middleware
-			next();
+            next();
 		}
 	});
 };

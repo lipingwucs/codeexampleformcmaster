@@ -18,14 +18,16 @@ module.exports = function (app) {
     app.route('/list_tasks').get(tasks.readTasks);
     // Set up the 'courses' parameterized routes
 
-    app.route('/list_tasks/:taskId').get(tasks.read).put(tasks.updateByTaskId)
-    // Set up the 'taskId' parameter middleware
+    app.route('/list_tasks/:taskId').get(tasks.read).put(tasks.updateByTaskId);
+    // Set up the 'taskId' parameter middlewar
     //All param callbacks will be called before any handler of 
     //any route in which the param occurs, and they will each 
     //be called only once in a request - response cycle, 
     //even if the parameter is matched in multiple routes
-    app.route('/list_tasks/:taskId').get(tasks.read).delete(tasks.deleteByTaskId)
-    app.param('taskId', tasks.findTaskByTaskId);   
+    app.route('/list_tasks/:taskId').get(tasks.read).delete(tasks.deleteByTaskId);
+   // app.route('/list_tasks/:taskId').get(tasks.read).post(tasks.findTaskByTaskId)
+    
+   app.param('taskId', tasks.findTaskByTaskId);   
 
     app.route('/about').get(index.about);
 
