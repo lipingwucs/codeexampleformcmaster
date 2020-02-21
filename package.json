@@ -1,11 +1,13 @@
 {
-  "name": "MidtermTestPractice1",
+  "name": "midterm_Practice_Course",
   "version": "0.0.0",
-  "description": "MidtermTestPractice1",
+  "description": "midterm_Practice_Course",
   "main": "server.js",
   "author": {
     "name": "LipingWu",
-    "email": "foxpeer@gmail.com"
+    "Student Id": "300958061",
+    "email": "foxpeer@gmail.com",
+    "date": "2020/02/20"
   },
   "dependencies": {
     "body-parser": "^1.19.0",

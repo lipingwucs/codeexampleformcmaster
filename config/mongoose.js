@@ -12,8 +12,8 @@ module.exports = function () {
 		}).then(() => console.log('DB Connected!'))
 		.catch(err => {console.log('Error'); 	});//asych -3ways
 
-    // Load the 'Task' model !!!!
-    require('../app/models/task.server.model');   //need to Update!!!!!
+    // Load the 'Course' model !!!!
+    require('../app/models/course.server.model');   //need to Update!!!!!
     // Return the Mongoose connection instance
     return db;
 };

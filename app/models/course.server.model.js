@@ -4,11 +4,11 @@ var mongoose = require('mongoose'),
 
 
 
-// Define a new 'TaskSchema'
-var TaskSchema = new Schema({
-    taskId: { type: String, unique: true, required: true },
-    taskName: String,
-    taskDescription: String,
+// Define a new 'CourseSchema'
+var CourseSchema = new Schema({
+    courseId: { type: String, unique: true, required: true },
+    courseName: String,
+    courseDescription: String,
     startDate: {
         type: Date,
         // Create a default 'created' value
@@ -23,4 +23,4 @@ var TaskSchema = new Schema({
     owner: String    
 });
 // Create the 'User' model out of the 'UserSchema'
-mongoose.model('Task', TaskSchema);
+mongoose.model('Course', CourseSchema);

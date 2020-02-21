@@ -7,8 +7,8 @@ exports.render = function (req, res) {
 
 // Create a new 'renderAdd' controller method
 exports.renderAdd = function (req, res) {
-    // Use the 'response' object to render the 'add_task' view with a 'title' property
-    res.render('add_task', { title: 'Add New task' });
+    // Use the 'response' object to render the 'add_course' view with a 'title' property
+    res.render('add_course', { title: 'Add New course' });
 
 };
 
