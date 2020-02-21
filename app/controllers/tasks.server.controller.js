@@ -1,4 +1,4 @@
-﻿// Load the 'User' Mongoose model
+﻿// Load the 'Task' Mongoose model
 var Task = require('mongoose').model('Task');
 
 // Create a new 'create' controller method
@@ -76,8 +76,7 @@ exports.updateByTaskId = function (req, res, next) {
             // Call the next middleware with an error message
             return next(err);
         } else {
-            console.log(task);
-        
+            console.log(task);        
             // Use the 'response' object to send a JSON response
             res.redirect('/list_tasks'); //display all tasks
         }
