@@ -6,22 +6,46 @@ exports.createCourse = function (req, res, next) {
   // Create a new instance of the 'Course' Mongoose model
   var course = new Course(req.body); //get data from ejs page and attaches them to the model
   console.log("body: " + req.body.username);
+  req.course = req.body; //read the courses from request's body
+  var courseId = req.body.courseId;
+  var courseName = req.body.courseName;
+  var module = req.body.module;
+  var courseDescription = req.body.courseDescription;
+  var startDate = req.body.startDate;
+  var endDate = req.body.endDate;
+  var owner = req.body.owner;
 
   // Use the 'Course' instance's 'save' method to save a new course document
-  course.save(function (err) {
-    if (err) {
-      // Call the next middleware with an error message
-      return next(err);
-    } else {
-      // Use the 'response' object to send a JSON response
-      // res.json(course);
-      //res.redirect('/list_courses');
-      res.render("course_details", {
-        title: "Show Course Details",
-        course: course,
-      });
-    }
-  });
+  // ref: https://mongoosejs.com/docs/api.html#model_Model.findOneAndUpdate
+  Course.findOneAndUpdate(
+    { courseId: courseId }, //filter by courseId
+    {
+      courseId: courseId,
+      courseName: courseName,
+      module: module,
+      courseDescription: courseDescription,
+      startDate: startDate,
+      endDate: endDate,
+      owner: owner,
+    }, //update course
+    { upsert: true, new: true, overwrite: true }, //
+    //upset to create a new doc if none exists and new to return the new, updated document instead of the old one.
+
+    function (err, course) {
+      if (err) {
+        // Call the next middleware with an error message
+        return next(err);
+      } else {
+        // Use the 'response' object to send a JSON response
+        // res.json(course);
+        //res.redirect('/list_courses');
+        res.render("course_details", {
+          title: "Show Course Details",
+          course: course,
+        });
+      }
+    } //callback
+  );
 };
 
 // Create a new 'read' controller method
@@ -57,6 +81,7 @@ exports.updateByCourseId = function (req, res, next) {
 
   //find the index of parameter that is sent in req.params array
   var courseIndex = req.body.courseId.indexOf(req.params.courseId);
+
   //create the json object with updated values
   var courseToUpdate = {
     courseId: req.body.courseId[courseIndex],

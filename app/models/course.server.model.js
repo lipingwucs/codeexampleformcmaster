@@ -4,7 +4,7 @@ var mongoose = require("mongoose"),
 
 // Define a new 'CourseSchema'
 var CourseSchema = new Schema({
-  courseId: { type: String, unique: false, required: true },
+  courseId: { type: String, required: true },
   courseName: String,
   module: String,
   courseDescription: String,
