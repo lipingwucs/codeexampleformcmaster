@@ -103,7 +103,13 @@
 
         <td>
           <div>
-            <input type="text" name="owner" value="<%= course.owner %>" />
+            <input
+              type="email"
+              name="owner"
+              value="<%= course.owner %>"
+              pattern=".+@tdsb\.com"
+              title="Please provide only a Best Startup Ever corporate e-mail address"
+            />
           </div>
         </td>
         <td>
