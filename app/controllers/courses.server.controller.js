@@ -61,7 +61,7 @@ exports.updateByCourseId = function (req, res, next) {
   var courseToUpdate = {
     courseId: req.body.courseId[courseIndex],
     courseName: req.body.courseName[courseIndex],
-    module: req.body.module[module],
+    module: req.body.module[courseIndex],
     courseDescription: req.body.courseDescription[courseIndex],
     startDate: req.body.startDate[courseIndex],
     endDate: req.body.endDate[courseIndex],
