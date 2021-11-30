@@ -7,6 +7,10 @@
   function reset() {
     alert("You are gonging to reset your comments now!");
   }
+
+  function confirm() {
+    alert("Confirm to submit?");
+  }
 </script>
 <div class="container">
   <div class="container_add">
@@ -56,8 +60,8 @@
         />
       </div>
       <div>
-        <input type="button" value="Reset" onClick="this.form.reset()" ; />
-        <input type="submit" value="Create Course" />
+        <input type="button" value="Reset" onclick="this.form.reset()" />
+        <input type="submit" value="Create Course" onclick="confirm()" />
       </div>
     </form>
   </div>

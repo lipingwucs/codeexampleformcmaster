@@ -21,7 +21,7 @@ module.exports = function (app) {
   app.route("/courses_details").post(courses.showByCourseId); //details
 
   app.route("/list_courses/:courseId").put(courses.updateByCourseId); //update  //need to Update!!!!!
-  // Set up the 'courseId' parameter middlewar
+  // Set up the 'courseId' parameter middleware
   //All param callbacks will be called before any handler of
   //any route in which the param occurs, and they will each
   //be called only once in a request - response cycle,

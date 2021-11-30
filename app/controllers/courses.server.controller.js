@@ -13,6 +13,8 @@ exports.createCourse = function (req, res, next) {
   var courseDescription = req.body.courseDescription;
   var startDate = req.body.startDate;
   var endDate = req.body.endDate;
+
+  console.log("Start Date:" + startDate + ", EndDate: " + endDate);
   var owner = req.body.owner;
 
   // Use the 'Course' instance's 'save' method to save a new course document
@@ -28,6 +30,7 @@ exports.createCourse = function (req, res, next) {
       endDate: endDate,
       owner: owner,
     }, //update course
+
     { upsert: true, new: true, overwrite: true }, //
     //upset to create a new doc if none exists and new to return the new, updated document instead of the old one.
 
@@ -38,11 +41,12 @@ exports.createCourse = function (req, res, next) {
       } else {
         // Use the 'response' object to send a JSON response
         // res.json(course);
-        //res.redirect('/list_courses');
+        res.redirect("/list_courses");
+        /*
         res.render("course_details", {
           title: "Show Course Details",
           course: course,
-        });
+        }); */
       }
     } //callback
   );
