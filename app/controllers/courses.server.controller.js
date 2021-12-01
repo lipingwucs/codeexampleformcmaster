@@ -5,7 +5,7 @@ var Course = require("mongoose").model("Course");
 exports.createCourse = function (req, res, next) {
   // Create a new instance of the 'Course' Mongoose model
   var course = new Course(req.body); //get data from ejs page and attaches them to the model
-  console.log("body: " + req.body.username);
+  //console.log("body: " + req.body.username);
   req.course = req.body; //read the courses from request's body
   var courseId = req.body.courseId;
   var courseName = req.body.courseName;
@@ -13,8 +13,9 @@ exports.createCourse = function (req, res, next) {
   var courseDescription = req.body.courseDescription;
   var startDate = req.body.startDate;
   var endDate = req.body.endDate;
-
-  console.log("Start Date:" + startDate + ", EndDate: " + endDate);
+  console.log(
+    "When Add a new course: Start Date:" + startDate + ", EndDate: " + endDate
+  );
   var owner = req.body.owner;
 
   // Use the 'Course' instance's 'save' method to save a new course document
@@ -41,12 +42,11 @@ exports.createCourse = function (req, res, next) {
       } else {
         // Use the 'response' object to send a JSON response
         // res.json(course);
-        res.redirect("/list_courses");
-        /*
+        // res.redirect("/list_courses");
         res.render("course_details", {
           title: "Show Course Details",
           course: course,
-        }); */
+        });
       }
     } //callback
   );
@@ -58,12 +58,13 @@ exports.readCourses = function (req, res, next) {
   // Use the 'Course' static 'find' method to retrieve the list of items
   Course.find({}, function (err, courses) {
     console.log(courses);
+
     if (err) {
       // Call the next middleware with an error message
       console.log("some error in readCourse method");
       return next(err);
     } else {
-      //
+      console.log("After convert: " + courses);
       res.render("courses", {
         title: "List All Courses",
         courses: courses,
@@ -85,6 +86,8 @@ exports.updateByCourseId = function (req, res, next) {
 
   //find the index of parameter that is sent in req.params array
   var courseIndex = req.body.courseId.indexOf(req.params.courseId);
+  var startDate = req.body.startDate[courseIndex];
+  var endDate = req.body.endDate[courseIndex];
 
   //create the json object with updated values
   var courseToUpdate = {
@@ -96,6 +99,16 @@ exports.updateByCourseId = function (req, res, next) {
     endDate: req.body.endDate[courseIndex],
     owner: req.body.owner[courseIndex],
   };
+
+  console.log(
+    "After Update：Start Date:" +
+      startDate +
+      ", EndDate: " +
+      endDate +
+      ", Module id: " +
+      req.body.module[courseIndex]
+  );
+  console.log(" Get Course by ID from database: " + courseToUpdate);
 
   //initialize findOneAndUpdate method arguments
   var query = { courseId: req.params.courseId };
@@ -112,7 +125,7 @@ exports.updateByCourseId = function (req, res, next) {
     } else {
       console.log(course);
       // Use the 'response' object to send a JSON response
-      res.redirect("/list_courses"); //display all courses
+      res.redirect("/list_courses"); //display all course
     }
   });
 };
@@ -176,6 +189,7 @@ exports.showByCourseId = function (req, res, next) {
       } else {
         console.log(course);
         // Call the next middleware
+
         res.render("course_details", {
           title: "Show Course Details",
           course: course,

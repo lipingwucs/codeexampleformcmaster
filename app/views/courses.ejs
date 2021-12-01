@@ -23,6 +23,7 @@
             <label>Course Description:</label>
           </div>
         </td>
+
         <td>
           <div>
             <label>Start Date:</label>
@@ -33,6 +34,7 @@
             <label>End date </label>
           </div>
         </td>
+
         <td>
           <div>
             <label>Instructor </label>
@@ -86,18 +88,25 @@
             />
           </div>
         </td>
+
         <td>
           <div>
             <input
-              type="text"
+              type="date"
               name="startDate"
               value="<%= course.startDate %>"
+              placeholder="yyyy/mm/dd"
             />
           </div>
         </td>
         <td>
           <div>
-            <input type="text" name="endDate" value="<%= course.endDate %>" />
+            <input
+              type="date"
+              name="endDate"
+              value="<%= course.endDate %>"
+              placeholder="yyyy/mm/dd"
+            />
           </div>
         </td>
 

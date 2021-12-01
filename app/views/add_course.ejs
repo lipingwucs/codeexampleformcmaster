@@ -1,13 +1,5 @@
 <%- include('header'); -%>
 <script>
-  function submit() {
-    alert("You are gonging to submit your comments now!");
-  }
-
-  function reset() {
-    alert("You are gonging to reset your comments now!");
-  }
-
   function confirm() {
     alert("Confirm to submit?");
   }
@@ -51,16 +43,22 @@
         <input type="date" name="endDate" placeholder="yyyy/mm/dd" />
       </div>
       <div>
-        <label>Owner:</label>
+        <label>Email of Owner: </label>
         <input
           type="email"
           name="owner"
           pattern=".+@tdsb\.com"
           title="Please provide only a Best Startup Ever corporate e-mail address"
+          placeholder="example@tdsb.com"
         />
       </div>
       <div>
-        <input type="button" value="Reset" onclick="this.form.reset()" />
+        <input
+          type="button"
+          value="Reset"
+          onclick="reset()"
+          onclick="this.form.reset()"
+        />
         <input type="submit" value="Create Course" onclick="confirm()" />
       </div>
     </form>

@@ -9,15 +9,11 @@ var CourseSchema = new Schema({
   module: String,
   courseDescription: String,
   startDate: {
-    type: Date,
-    // Create a default 'created' value
-    default: Date.now,
+    type: String,
   },
 
   endDate: {
-    type: Date,
-    // Create a default 'created' value
-    default: Date.now,
+    type: String,
   },
   owner: String,
 });
