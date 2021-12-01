@@ -1,7 +1,13 @@
 ﻿// Load the 'Course' Mongoose model
 var Course = require("mongoose").model("Course");
 
-// Create a new 'create' controller method
+// GET- Create a new 'renderAdd' controller method
+exports.renderAdd = function (req, res) {
+  // Use the 'response' object to render the 'add_course' view with a 'title' property
+  res.render("add_course", { title: "Add New course" });
+};
+
+//POST- Create a new 'create' controller method
 exports.createCourse = function (req, res, next) {
   // Create a new instance of the 'Course' Mongoose model
   var course = new Course(req.body); //get data from ejs page and attaches them to the model
@@ -42,7 +48,7 @@ exports.createCourse = function (req, res, next) {
       } else {
         // Use the 'response' object to send a JSON response
         // res.json(course);
-        // res.redirect("/list_courses");
+        // res.redirect("/courses_list");
         res.render("course_details", {
           title: "Show Course Details",
           course: course,
@@ -77,7 +83,7 @@ exports.readCourses = function (req, res, next) {
 exports.read = function (req, res) {
   // Use the 'response' object to send a JSON response
   // res.json(req.course);
-  res.redirect("/list_courses");
+  res.redirect("/courses_list");
 };
 //
 //update a course by course id
@@ -125,7 +131,7 @@ exports.updateByCourseId = function (req, res, next) {
     } else {
       console.log(course);
       // Use the 'response' object to send a JSON response
-      res.redirect("/list_courses"); //display all course
+      res.redirect("/courses_list"); //display all course
     }
   });
 };
@@ -168,7 +174,7 @@ exports.deleteByCourseId = function (req, res, next) {
       } else {
         console.log(course);
         // Use the 'response' object to send a JSON response
-        res.redirect("/list_courses"); //display all courses
+        res.redirect("/courses_list"); //display all courses
       }
     }
   );

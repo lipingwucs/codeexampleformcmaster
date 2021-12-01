@@ -67,7 +67,7 @@
               name="courseId"
               value="<%= course.courseId %>"
               readonly
-              size="20"
+              size="15"
             />
           </div>
         </td>
@@ -83,12 +83,14 @@
         </td>
         <td>
           <div>
-            <input
-              type="text"
-              name="module"
-              value="<%= course.module %>"
-              size="15"
-            />
+            <select name="module" value="<%= course.module %>">
+              <option value="<%= course.module %>" selected>
+                <%= course.module %>
+              </option>
+              <option value="module1">module1</option>
+              <option value="module2">module2</option>
+              <option value="module3">module3</option>
+            </select>
           </div>
         </td>
         <td>
@@ -139,7 +141,7 @@
           <div>
             <input
               type="submit"
-              formaction="/list_courses/<%= course.courseId %>?_method=PUT"
+              formaction="/courses_list/<%= course.courseId %>?_method=PUT"
               value="Update"
               class="btn btn-warning"
             />
@@ -149,7 +151,7 @@
           <div>
             <input
               type="submit"
-              formaction="/list_courses/<%= course.courseId %>?_method=Delete"
+              formaction="/courses_list/<%= course.courseId %>?_method=Delete"
               value="Delete"
               class="btn btn-danger"
             />
@@ -159,7 +161,7 @@
           <div>
             <input
               type="submit"
-              formaction="/courses_details?id=<%= course.courseId %>"
+              formaction="/courses_details?id=<%= course.courseId %>&_method=Get"
               value="Details"
               class="btn btn-information"
             />
