@@ -67,6 +67,7 @@
               name="courseId"
               value="<%= course.courseId %>"
               readonly
+              size="20"
             />
           </div>
         </td>
@@ -76,12 +77,18 @@
               type="text"
               name="courseName"
               value="<%= course.courseName %>"
+              size="10"
             />
           </div>
         </td>
         <td>
           <div>
-            <input type="text" name="module" value="<%= course.module %>" />
+            <input
+              type="text"
+              name="module"
+              value="<%= course.module %>"
+              size="15"
+            />
           </div>
         </td>
         <td>
@@ -90,6 +97,7 @@
               type="text"
               name="courseDescription"
               value="<%= course.courseDescription %>"
+              size="20"
             />
           </div>
         </td>
@@ -123,6 +131,7 @@
               value="<%= course.owner %>"
               pattern=".+@tdsb\.com"
               title="Please provide only a Best Startup Ever corporate e-mail address"
+              size="10"
             />
           </div>
         </td>
